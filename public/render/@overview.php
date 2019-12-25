@@ -5,13 +5,13 @@ if($_SESSION["admin"] !== true){die("Not have permission!");}
 $allAccount = $db->getNumber("select uid from accounts",array());
 $allRunner = $db->getNumber("select uid from run",array());
 $allPaid = $db->getNumber("select uid from payment_report where status=1",array());
-$percentPaid = ($allPaid/$allAccount)*100;
+$percentPaid = @($allPaid/$allAccount)*100;
 $allFunrun = $db->getNumber("select uid from run where runType=1 and isVIP=0",array());
-$percentFunrun = ($allFunrun/$allRunner)*100;
+$percentFunrun = @($allFunrun/$allRunner)*100;
 $allMini = $db->getNumber("select uid from run where runType=2 and isVIP=0",array());
-$percentMini = ($allMini/$allRunner)*100;
+$percentMini = @($allMini/$allRunner)*100;
 $allVIP = $db->getNumber("select uid from run where isVIP=1",array());
-$percentVIP = ($allVIP/$allRunner)*100;
+$percentVIP = @($allVIP/$allRunner)*100;
 ?>
 
 <div align="center">

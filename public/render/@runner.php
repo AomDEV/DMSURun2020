@@ -26,6 +26,7 @@ if($_SESSION["admin"] !== true){die("Not have permission!");}
 	</thead>
 	<tbody>
 		<?php
+		if($db->getNumber("select uid from run",array()) > 0){
 		foreach($db->getRows("select * from run") as $row){
 			$getAcc = $db->getRow("select * from accounts where uid=?",array($row["uid"]));
 
@@ -89,6 +90,7 @@ if($_SESSION["admin"] !== true){die("Not have permission!");}
 				echo '<tr> <td>'.$rid.'</td> <td>'.$firstName.'</td> <td>'.$idcard.'..</td> <td>'.$phone.'</td> <td>-</td> <td>-</td> <td><span uk-icon="close"></span></td></tr>';
 			}
 		}
+		} else { echo '<tr> <td colspan="7">ไม่พบข้อมูล</td> </tr>'; }
 		?>
 	</tbody>
 </table>

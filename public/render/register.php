@@ -1,5 +1,6 @@
 <div class="content-box login-box">
-
+	<link rel="stylesheet" href="public/assets/css/jquery-ui.css">
+	<script src="public/assets/js/jquery-ui.min.js"></script>
 <h1><b>ลงทะเบียน</b></h1>
 
 <form class="register">
@@ -41,7 +42,7 @@
 	<div align="left">
 		<label>
 			<b>วัน/เดือน/ปี เกิด <font color="red"><b>*</b></font></b> 
-			<input type="date" class="uk-input" name="birthday" autocomplete="off" required="" placeholder="Birthday (dd/mm/YYYY)" />
+			<input type="text" class="uk-input" name="birthday" autocomplete="off" required="" placeholder="Birthday (dd/mm/YYYY)" />
 		</label>
 	</div>
 	<div align="left">
@@ -60,5 +61,6 @@
 	</div>
 </form>
 <script src="public/assets/js/auth.js"></script>
+<script>$(function(){$("input[name=birthday]").datepicker({ changeMonth: true,changeYear: true,yearRange: "-100:+0",dateFormat: "dd-mm-yy" });});</script>
 
 </div>
