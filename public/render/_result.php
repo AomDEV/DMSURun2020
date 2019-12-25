@@ -1,6 +1,7 @@
 <?php
 require(__DIR__."/../../public/modules/config.inc.php");
 if(!class_exists('database')){die("Class not exist!");}
+if(!isset($_SESSION["uid"])){die("access denied!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 $getRun = $db->getRow("select status from run where uid=?",array($_SESSION["uid"]));
 ?>

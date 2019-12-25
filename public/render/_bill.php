@@ -7,6 +7,7 @@
 <?php
 require(__DIR__ ."/../../public/modules/config.inc.php");
 if(!class_exists('database')){die("Class not exist!");}
+if(!isset($_SESSION["uid"])){die("access denied!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 $sqlBilling = "select status from payment_report where uid=?";
 $getBilling = $db->getRow($sqlBilling,array($_SESSION["uid"]));
