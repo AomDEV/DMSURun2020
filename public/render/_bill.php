@@ -75,7 +75,7 @@ if(isset($getBilling["status"]) and (/*$getBilling["status"]==1 or*/ $getBilling
 			</div>
 			<div class="uk-width-1-2" align="left">
 				<label><b>จำนวนเงิน</b> 
-					<input type="text" class="uk-input" style="margin-left:0px;" name="amount" required="" placeholder="100.00" />
+					<input type="text" class="uk-input" style="margin-left:0px;" name="amount" autocomplete="off" required="" placeholder="100.00" />
 				</label>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 require(__DIR__ ."/../../public/modules/config.inc.php");
 if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
-if($_SESSION["admin"] !== true){die("Not have permission!");}
+if($_SESSION["admin"] != true){die("Not have permission!");}
 ?>
 <div align="left" style="margin-top:-20px;margin-left:-20px;margin-right:-20px;">
 	<label><span uk-icon="cog"></span></label> 

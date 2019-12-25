@@ -1,7 +1,7 @@
 <?php
 session_start();
-require("../modules/db.pdo.php");
-require("../modules/config.inc.php");
+require(__DIR__ . "/../modules/db.pdo.php");
+require(__DIR__ . "/../modules/config.inc.php");
 $array = array("error"=>true,"message"=>"Not found request");
 ini_set('display_errors', 1);
 date_default_timezone_set("Asia/Bangkok");
@@ -38,7 +38,7 @@ if(isset($_POST["method"])){
 					} else{
 						$getUID = $db->getRow($sqlRow,$sqlParam); //Get UID from Database
 						$_SESSION["uid"] = $getUID["uid"]; //Set UID to session
-						$_SESSION["admin"] = boolval($getUID["admin"]);
+						$_SESSION["admin"] = intval($getUID["admin"]);
 
 						$array["error"] = false;
 						$array["message"] = "เข้าสู่ระบบสำเร็จ";

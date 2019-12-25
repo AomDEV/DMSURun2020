@@ -1,3 +1,6 @@
+<?php
+ini_set('display_errors', 1);
+?>
 <div class="content-box">
 <div class="header">
 <img src="public/assets/img/dmsu_run2020.png" width="60%" />

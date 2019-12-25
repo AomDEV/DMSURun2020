@@ -1,6 +1,10 @@
 <?php
 require(__DIR__ ."/../../public/modules/config.inc.php");
 if(!class_exists('database')){die("Class not exist!");}
+if(!isset($_SESSION["uid"])){die("access denied!");}
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 ?>
 <div class="content-box">
@@ -161,23 +165,23 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 </div>
 <script>
 <?php
-function js_str($s)
-{
-    return '"' . addcslashes($s, "\0..\37\"\\") . '"';
+if(isset($_POST["act"]) and $_POST["act"]!=2){
+	function js_str($s)
+	{
+	    return '"' . addcslashes($s, "\0..\37\"\\") . '"';
+	}
+	function jsArray($array)
+	{
+	    $temp = array_map('js_str', $array);
+	    return '[' . implode(',', $temp) . ']';
+	}
+	echo 'var subType1 = ', jsArray($ageType), ';';
+	echo 'var startType1 = 0;';
+	echo 'var endType1 = '.(count($ageType)).';';
+	echo 'var subType2 = ', jsArray($runType), ';';
+	echo 'var startType2 = 1;';
+	echo 'var endType2 = '.(count($runType)-1).';';
 }
-
-function js_array($array)
-{
-    $temp = array_map('js_str', $array);
-    return '[' . implode(',', $temp) . ']';
-}
-
-echo 'var subType1 = ', js_array($ageType), ';';
-echo 'var startType1 = 0;';
-echo 'var endType1 = '.(count($ageType)).';';
-echo 'var subType2 = ', js_array($runType), ';';
-echo 'var startType2 = 1;';
-echo 'var endType2 = '.(count($runType)-1).';';
 ?>
 </script>
 <script src="public/assets/js/group.js"></script>

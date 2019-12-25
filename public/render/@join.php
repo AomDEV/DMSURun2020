@@ -2,13 +2,13 @@
 require(__DIR__ ."/../../public/modules/config.inc.php");
 if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
+if($_SESSION["admin"] != true){die("Not have permission!");}
 ?>
 <h3 align="left"><span uk-icon="check"></span> ลงชื่อเข้างาน</h3>
 
 <form action method="get">
 
 	<?php
-	if($_SESSION["admin"] !== true){die("Not have permission!");}
 	if(isset($_GET["id"]) and is_numeric($_GET["id"])){
 		$sqlRunner = "select * from run where runid=?";
 		$sqlAccount = "select * from accounts where uid=?";

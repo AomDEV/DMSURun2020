@@ -2,7 +2,7 @@
 require(__DIR__ ."/../../public/modules/config.inc.php");
 if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
-if($_SESSION["admin"] !== true){die("Not have permission!");}
+if($_SESSION["admin"] != true){die("Not have permission!");}
 if(isset($_GET["accept"]) and is_numeric($_GET["accept"])){
 	@$db->updateRow("UPDATE payment_report SET status='1' WHERE rid=?;",array(intval($_GET["accept"])));
 	echo '<script>window.location="./?admin=bill";</script>';

@@ -1,7 +1,9 @@
 <?php
 session_start();
-require(__DIR__ . "/public/modules/db.pdo.php");
+include_once __DIR__ . "/public/modules/db.pdo.php";
 date_default_timezone_set("Asia/Bangkok");
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 ?>
 <!DOCTYPE html>
 <html>
