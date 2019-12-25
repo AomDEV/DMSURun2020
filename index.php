@@ -39,8 +39,10 @@ if(isset($_SESSION["uid"]) and is_numeric($_SESSION["uid"]) and $_SESSION["uid"]
 }
 ?>
 
-<div style="margin-bottom: 10px;color:rgba(255,255,255,0.6);text-shadow: 1px 1px 2px rgba(0,0,0,0.75);">
-<font size="2"><span uk-icon="icon:instagram; ratio:0.5"></span> aom.s__ | <span uk-icon="icon:facebook; ratio:0.5"></span> Aom Siriwat</font>
+<div class="bottom">
+	<div style="margin-bottom: 10px;color:rgba(255,255,255,0.6);text-shadow: 1px 1px 2px rgba(0,0,0,0.75);">
+	<font size="2"><span uk-icon="icon:instagram; ratio:0.5"></span> aom.s__ | <span uk-icon="icon:facebook; ratio:0.5"></span> Aom Siriwat</font>
+	</div>
 </div>
 
 </div>
