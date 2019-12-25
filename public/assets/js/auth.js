@@ -23,6 +23,7 @@ $(document).ready(function() {
                 $("#box").html('<div class="uk-alert-danger" uk-alert><p><span uk-icon="warning"></span> ' + data.message + '</p></div>').show(500);
             }
         }).fail(function(data){
+            console.log(data);
             alert("สมัครสมาชิกไม่สำเร็จ. กรุณาติดต่อผู้ดูแลระบบ");
         });
 
