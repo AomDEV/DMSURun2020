@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("public/modules/db.pdo.php");
+require(__DIR__ . "/public/modules/db.pdo.php");
 date_default_timezone_set("Asia/Bangkok");
 ?>
 <!DOCTYPE html>
@@ -25,16 +25,16 @@ date_default_timezone_set("Asia/Bangkok");
 if(isset($_SESSION["uid"]) and is_numeric($_SESSION["uid"]) and $_SESSION["uid"] > 0){
 	$loggedinAllowed = array("regisRun","groupRun","home","logout");
 	if(isset($_GET["page"]) and in_array($_GET["page"], $loggedinAllowed)){
-		include 'public/render/'.$_GET["page"].'.php';
+		include __DIR__ . '/public/render/'.$_GET["page"].'.php';
 	} else{
-		include 'public/render/home.php';
+		include __DIR__ . '/public/render/home.php';
 	}
 } else{
 	$nonLoginAllowed = array("login","register");
 	if(isset($_GET["page"]) and in_array($_GET["page"], $nonLoginAllowed)){
-		include 'public/render/'.$_GET["page"].'.php';
+		include __DIR__ . 'public/render/'.$_GET["page"].'.php';
 	} else{
-		include 'public/render/login.php';
+		include __DIR__ . 'public/render/login.php';
 	}
 }
 ?>
