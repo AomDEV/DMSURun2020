@@ -6,12 +6,12 @@
 	<div id="box" style="display:none;margin-top: -5px;margin-bottom: -5px;"></div>
 	<div align="left">
 		<label><b>เบอร์โทรศัพท์</b> 
-			<input type="text" maxlength="10" class="uk-input" name="telphone" pattern="\d+" autocomplete="off" required="" placeholder="Phone Number (09XXXXXXXX)" />
+			<input type="text" maxlength="10" class="uk-input" name="telphone" pattern="[0-9]*" autocomplete="off" required="" placeholder="Phone Number (09XXXXXXXX)" />
 		</label>
 	</div>
 	<div align="left">
 		<label><b>เลขบัตรประชาชน</b> 
-			<input type="text" maxlength="13" class="uk-input" name="idcard" pattern="\d+" autocomplete="off" required="" placeholder="ID Card (XXXXXXXXXXXXX)" />
+			<input type="text" maxlength="13" class="uk-input" name="idcard" pattern="[0-9]*" autocomplete="off" required="" placeholder="ID Card (XXXXXXXXXXXXX)" />
 		</label>
 	</div>
 

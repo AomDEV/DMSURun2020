@@ -52,7 +52,7 @@ if($_SESSION["admin"] != true){die("Not have permission!");}
 	<div align="left">
 		<label>
 			<b>เลขประจำตัวผู้วิ่ง <font color="red"><b>*</b></font></b> 
-			<input type="text" maxlength="4" class="uk-input uk-form-large" name="id" autocomplete="off" required="" placeholder="Runner ID (#0000)" value="<?php echo str_pad(intval(isset($_GET['id'])?$_GET['id']:0), 4, '0', STR_PAD_LEFT); ?>" /> 
+			<input type="text" maxlength="4" class="uk-input uk-form-large" name="id" autocomplete="off" pattern="[0-9]*" required="" placeholder="Runner ID (#0000)" value="<?php echo str_pad(intval(isset($_GET['id'])?$_GET['id']:0), 4, '0', STR_PAD_LEFT); ?>" /> 
 			<div align="right" style="margin-top:10px;">
 				<button type="submit" class="uk-button uk-button-primary"><span uk-icon="search"></span> ค้นหา</button>
 			</div>

@@ -56,7 +56,7 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 			</div></div></div>
 			<div align="left"><div class="uk-text-center uk-grid-small" uk-grid><div class="uk-width-1-2" align="left">
 				<label><b>เบอร์โทรศัพท์ <font color="red"><b>*</b></font></b>
-				<input type="text" maxlength="10" name="phone[<?php echo $i-1;?>]" required autocomplete="off" class="uk-input" placeholder="Phone Number" /></label>
+				<input type="text" maxlength="10" name="phone[<?php echo $i-1;?>]" pattern="[0-9]*" required autocomplete="off" class="uk-input" placeholder="Phone Number" /></label>
 			</div><div class="uk-width-1-2 subtype_<?php echo $i-1; ?>" style="display:none;" align="left">
 				<label><b><span id="label_<?php echo $i-1; ?>"></span> <font color="red"><b>*</b></font></b>
 				<select class="uk-select subTypeSelect_<?php echo $i-1; ?>" name="subType[<?php echo $i-1; ?>]"><option value="0" selected="">0</option>
