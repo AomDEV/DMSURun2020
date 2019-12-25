@@ -2,7 +2,8 @@
 	<h1><b><span uk-icon="icon: bolt; ratio: 1.5"></span> ลงทะเบียนการวิ่ง</b></h1>
 
 <?php
-require("public/modules/config.inc.php");
+require(__DIR__ ."/../../public/modules/config.inc.php");
+if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 $allowGroupRegister = false;
 if($db->getNumber("SELECT uid FROM run WHERE uid=?",array($_SESSION["uid"])) >= 1){

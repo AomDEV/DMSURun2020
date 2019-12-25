@@ -1,9 +1,11 @@
 <?php
 session_start();
-require("../modules/db.pdo.php");
-require("../modules/config.inc.php");
+require(__DIR__."/../modules/db.pdo.php");
+require(__DIR__."/../modules/config.inc.php");
 if(!isset($_SESSION["uid"])){die("access denied!");}
+if(!class_exists('database')){die("Class not exist!");}
 ?>
+<meta charset="UTF-8">
 <h3>รายชื่อการวิ่งแบบกลุ่ม</h3>
 <table border="1">
 	<tr>

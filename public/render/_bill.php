@@ -5,7 +5,8 @@
 <div><label>ชื่อบัญชี</label> <b>นายธัญสุต บริหารธนวุฒิ และ นายคึกฤทธิ์ เรกะลาภ</b></div>
 
 <?php
-require("public/modules/config.inc.php");
+require(__DIR__ ."/../../public/modules/config.inc.php");
+if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 $sqlBilling = "select status from payment_report where uid=?";
 $getBilling = $db->getRow($sqlBilling,array($_SESSION["uid"]));

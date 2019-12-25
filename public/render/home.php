@@ -18,11 +18,11 @@
         	$allowedPage = array("bill","result","cert");
             $adminAllowedPage = array("join","runner","bill","overview");
         	if(isset($_GET["a"]) and in_array($_GET["a"], $allowedPage)){
-        		include 'public/render/_'.$_GET["a"].'.php';
+        		include __DIR__ .'/../../public/render/_'.$_GET["a"].'.php';
             } else if(isset($_GET["admin"]) and in_array($_GET["admin"], $adminAllowedPage) and $_SESSION["admin"]==true){
-                include 'public/render/@'.$_GET["admin"].'.php';
+                include __DIR__ .'/../../public/render/@'.$_GET["admin"].'.php';
         	} else{
-        		include 'public/render/_home.php';
+        		include __DIR__ .'/../../public/render/_home.php';
         	}
         	?>
         </div>

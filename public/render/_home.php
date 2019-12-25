@@ -1,5 +1,6 @@
 <?php
-require("public/modules/config.inc.php");
+require(__DIR__ . "/../../public/modules/config.inc.php");
+if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 $uid = $_SESSION["uid"];
 $getData = $db->getRow("SELECT * FROM accounts WHERE uid=?",array($uid));
@@ -10,7 +11,7 @@ $getData = $db->getRow("SELECT * FROM accounts WHERE uid=?",array($uid));
 <div align="left"><label><span uk-icon="nut"></span> เลขบัตรประจำตัว</label> <b><?php echo substr($getData["idcard"],0,9); ?>XXXX</b></div>
 <div align="left"><label><span uk-icon="world"></span> เพศ</label> <b><?php echo array("ชาย","หญิง")[$getData["gender"]]; ?></b></div>
 <div align="left"><label><span uk-icon="calendar"></span> วันเกิด</label> <b><?php echo date("d F ",$getData["birthday"]).((date("Y",$getData["birthday"]))+543); ?></b></div>
-<?php if($db->getNumber("select * from run where follower=?",array($uid)) > 0){ ?>
+<?php if(($db->getNumber("select * from run where follower=?",array($uid))) > 0){ ?>
 <div align="left"><label><span uk-icon="users"></span> <a href="./public/render/groupList.php" target="_new">ดูข้อมูลการวิ่งแบบกลุ่ม</a></div>
 <?php } ?>
 

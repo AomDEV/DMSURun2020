@@ -1,5 +1,6 @@
 <?php
-require("public/modules/config.inc.php");
+require(__DIR__ ."/../../public/modules/config.inc.php");
+if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 if($_SESSION["admin"] !== true){die("Not have permission!");}
 ?>
