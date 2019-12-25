@@ -7,13 +7,13 @@
 	<div align="left">
 		<label>
 			<b>เบอร์โทรศัพท์ <font color="red"><b>*</b></font></b> 
-			<input type="text" maxlength="10" class="uk-input" name="telphone" pattern="\d+" autocomplete="off" required="" placeholder="Phone Numbe" /> 
+			<input type="tel" maxlength="10" class="uk-input" name="telphone" pattern="[0-9]*" autocomplete="off" required="" placeholder="Phone Number" /> 
 		</label>
 	</div>
 	<div align="left">
 		<label>
 			<b>เลขบัตรประชาชน <font color="red"><b>*</b></font></b> 
-			<input type="text" maxlength="13" class="uk-input" name="idcard" pattern="\d+" autocomplete="off" required="" placeholder="ID Card" />
+			<input type="text" maxlength="13" class="uk-input" name="idcard" pattern="[0-9]*" autocomplete="off" required="" placeholder="ID Card" />
 		</label>
 	</div>
 	<div align="left">
