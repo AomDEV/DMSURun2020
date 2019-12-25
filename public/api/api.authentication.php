@@ -4,8 +4,9 @@ require("../modules/db.pdo.php");
 require("../modules/config.inc.php");
 $array = array("error"=>true,"message"=>"Not found request");
 ini_set('display_errors', 1);
+date_default_timezone_set("Asia/Bangkok");
 //ID Card check
-function isValidNationalId(string $nationalId)
+function isValidNationalId($nationalId)
 {
   if (strlen($nationalId) === 13) {
     $digits = str_split($nationalId);
