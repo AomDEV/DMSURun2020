@@ -1,0 +1,62 @@
+html{
+	/*font-family: "Lato", Arial, sans-serif;*/
+	background: linear-gradient(135deg, #A9C8C8 0%, #A8B3C2 100%);
+	background: url(../img/bg.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+body,h1,h2,h3,h4,h5,h6,input,button{
+	font-family: 'Kanit', sans-serif;
+}
+.content-box{
+	margin:10px;
+	margin-top:30px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+	padding:20px;
+	background-color:#eee;
+	max-width:800px;
+}
+.login-box{
+	max-width: 400px;
+}
+.icon-bank{
+	display: inline-block;
+	position: relative;
+	text-indent: -9999px;
+	width: 26px;
+	height: 26px;
+	text-rendering: auto;
+	border-radius: 5px;
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	top: 2px;
+	left: 2px;
+	padding: 2px;
+	content: "";
+	background-position: center center;
+}
+.scb{
+	background-color:#4e2e7f;
+	background-image: url(../img/scb.svg);
+}
+.ktb{
+	background-color:#1ba5e1;
+	background-image: url(../img/ktb.svg);
+}
+.gsb{
+	background-color:#eb198d;
+	background-image: url(../img/gsb.svg);
+}
+.kbank{
+	background-color:#138f2d;
+	background-image: url(../img/kbank.svg);
+}
+.tmb{
+	background-color:#1279be;
+	background-image: url(../img/tmb.svg);
+}
+.header{
+	background-color:white;
+	padding:30px;
+	margin:-20px;
+	margin-bottom: 0px;
+}
