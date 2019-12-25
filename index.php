@@ -32,9 +32,9 @@ if(isset($_SESSION["uid"]) and is_numeric($_SESSION["uid"]) and $_SESSION["uid"]
 } else{
 	$nonLoginAllowed = array("login","register");
 	if(isset($_GET["page"]) and in_array($_GET["page"], $nonLoginAllowed)){
-		include __DIR__ . 'public/render/'.$_GET["page"].'.php';
+		include __DIR__ . '/public/render/'.$_GET["page"].'.php';
 	} else{
-		include __DIR__ . 'public/render/login.php';
+		include __DIR__ . '/public/render/login.php';
 	}
 }
 ?>
