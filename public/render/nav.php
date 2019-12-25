@@ -15,7 +15,7 @@
         <li <?php if(isset($_GET["a"]) and $_GET["a"]=="cert"){echo 'class="uk-active"';} ?>>
             <a href="./?a=cert"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: print"></span> เกียรติบัตร</div></a>
         </li>
-        <?php if($_SESSION["admin"]==true){ ?>
+        <?php if(isset($_SESSION["admin"]) and $_SESSION["admin"]==true){ ?>
             <li class="uk-nav-divider"></li>
             <li><a href="./?admin=overview"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> ภาพรวม</div></a></li>
             <li><a href="./?admin=join"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: check"></span> ลงชื่อเข้างาน</div></a></li>
