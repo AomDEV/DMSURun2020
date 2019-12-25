@@ -28,6 +28,9 @@ if(isset($_POST["date"]) and isset($_POST["time"]) and isset($_FILES['file']) an
 	} else if(!is_numeric($_POST["amount"]) or intval($_POST["amount"]) <= 0){
 		$array["message"] = "ยอดเงินไม่ถูกต้อง";
 	} else{
+		if(!file_exists('../../storage')){
+			mkdir('../../storage', 0777, true)
+		}
 		if (!file_exists('../../storage/user_'.$uid)) {
 			mkdir('../../storage/user_'.$uid, 0777, true);
 		}
