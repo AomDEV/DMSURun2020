@@ -25,7 +25,7 @@ ini_set("display_errors", 1);
 
 <?php 
 if(isset($_SESSION["uid"]) and is_numeric($_SESSION["uid"]) and $_SESSION["uid"] > 0){
-	$loggedinAllowed = array("regisRun","groupRun","home","logout");
+	$loggedinAllowed = array("regisRun","groupRun","home","logout","listOfRunner");
 	if(isset($_GET["page"]) and in_array($_GET["page"], $loggedinAllowed)){
 		include __DIR__ . '/public/render/'.$_GET["page"].'.php';
 	} else{
