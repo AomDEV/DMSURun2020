@@ -29,7 +29,7 @@ if(isset($_GET["eject"]) and is_numeric($_GET["eject"])){
 		if($db->getNumber("select uid from payment_report",array()) > 0){
 			foreach($db->getRows("select * from payment_report") as $row){
 				$getRun = $db->getRow("select runType,isVIP from run where uid=?",array($_SESSION["uid"]));
-				$price = ($getRun["isVIP"]==true)?$runPrice[3]:$runPrice[$getRun["runType"]];
+				$price = ($getRun["isVIP"]==true)?$runPrice[3]:(isset($runPrice[$getRun["runType"]])?$runPrice[$getRun["runType"]]:$runPrice[0]);
 				$icon = array("","check","close");
 				echo '<tr> <td>'.$row["rid"].'</td> <td>'.str_pad($row["uid"], 4, '0', STR_PAD_LEFT).'</td> <td>'.date("d/m/Y H:i",$row["date"]).'</td> <td>'.number_format($row["amount"],2).'</td> <td><a href="./storage/user_'.$row["uid"].'/'.$row["file_name"].'" target="_new"><span uk-icon="search"></span> ดูรูป</a></td> <td>';
 				if($row["status"]==0){
