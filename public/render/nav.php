@@ -20,6 +20,7 @@
             <li><a href="./?admin=overview"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> ภาพรวม</div></a></li>
             <li><a href="./?admin=join"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: check"></span> ลงชื่อเข้างาน</div></a></li>
             <li><a href="./?admin=runner"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: users"></span> ดูข้อมูลผู้วิ่ง</div></a></li>
+            <li><a href="./?admin=users"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: info"></span> ดูข้อมูลผู้สมัคร</div></a></li>
             <li><a href="./?admin=bill"><div align="left"><span class="uk-margin-small-right" uk-icon="icon: history"></span> อนุมัติหลักฐาน</div></a></li>
         <?php } ?>
         <li class="uk-nav-divider"></li>
