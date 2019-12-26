@@ -19,7 +19,7 @@ ini_set('display_errors', 1);
         <div class="uk-card uk-card-default uk-card-body">
         	<?php
         	$allowedPage = array("bill","result","cert");
-            $adminAllowedPage = array("join","runner","bill","overview");
+            $adminAllowedPage = array("join","runner","bill","overview","users");
         	if(isset($_GET["a"]) and in_array($_GET["a"], $allowedPage)){
         		include __DIR__ .'/../../public/render/_'.$_GET["a"].'.php';
             } else if(isset($_GET["admin"]) and in_array($_GET["admin"], $adminAllowedPage) and $_SESSION["admin"]==true){
