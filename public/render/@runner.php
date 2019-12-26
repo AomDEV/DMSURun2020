@@ -10,10 +10,11 @@ if($_SESSION["admin"] != true){die("Not have permission!");}
 	<a style="margin-top:2px;" class="uk-button uk-button-secondary uk-button-small <?php if(isset($_GET['filter']) and $_GET['filter']=='mini'){echo 'uk-disabled';} ?>" href="./?admin=runner&filter=mini">MINI</a> 
 	<a style="margin-top:2px;" class="uk-button uk-button-secondary uk-button-small <?php if(isset($_GET['filter']) and $_GET['filter']=='vip'){echo 'uk-disabled';} ?>" href="./?admin=runner&filter=vip">VIP</a> 
 	<a style="margin-top:2px;" class="uk-button uk-button-secondary uk-button-small <?php if(isset($_GET['filter']) and $_GET['filter']=='notpaid'){echo 'uk-disabled';} ?>" href="./?admin=runner&filter=notpaid">ยังไม่ชำระเงิน</a> 
-	<a style="margin-top:2px;" class="uk-button uk-button-secondary uk-button-small <?php if(isset($_GET['filter']) and $_GET['filter']=='paid'){echo 'uk-disabled';} ?>" href="./?admin=runner&filter=paid">ชำระเงินแล้ว</a> 
+	<a style="margin-top:2px;" class="uk-button uk-button-secondary uk-button-small <?php if(isset($_GET['filter']) and $_GET['filter']=='paid'){echo 'uk-disabled';} ?>" href="./?admin=runner&filter=paid">ชำระแล้ว</a> 
+	<a style="margin-top:2px" class="uk-button uk-button-link uk-button-small search-click"><span uk-icon="search"></span></a>
 </div>
-<div style="margin-left:-30px;margin-right:-30px;" class="uk-overflow-auto">
-<table class="uk-table uk-table-hover uk-table-divider uk-table-justify">
+<div style="margin-left:-30px;margin-right:-30px;margin-top:10px;" class="uk-overflow-auto">
+<table class="uk-table uk-table-hover uk-table-divider uk-table-justify uk-table-small runnerTable">
 	<thead>
 		<tr>
 			<th class="uk-table-shrink">#</th>
@@ -96,3 +97,22 @@ if($_SESSION["admin"] != true){die("Not have permission!");}
 	</tbody>
 </table>
 </div>
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript"> 
+$(function(){
+	var clicked = false;
+	$("a.search-click").click(function(){
+		if(!clicked){
+			clicked=true;
+    		$('table.runnerTable').dataTable({});
+    	} else{
+    		clicked=false;
+    		//$('table.runnerTable').dataTable().fnClearTable();
+    		$('table.runnerTable').dataTable().fnDestroy();
+    	}
+	});
+} );
+</script>

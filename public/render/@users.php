@@ -4,8 +4,11 @@ if(!class_exists('database')){die("Class not exist!");}
 $db = new database($config["user"], $config["pass"], $config["host"], $config["db"]);
 if($_SESSION["admin"] != true){die("Not have permission!");}
 ?>
+<div align="left" style="margin-right:10px;">
+	<a style="margin-top:5px;margin-bottom:5px;" class="uk-button uk-button-secondary uk-button-small search-click"><span uk-icon="search"></span></a>
+</div>
 <div style="margin-left:-30px;margin-right:-30px;" class="uk-overflow-auto">
-<table class="uk-table uk-table-hover uk-table-divider uk-table-justify">
+<table class="uk-table uk-table-hover uk-table-divider uk-table-small usersTable uk-table-justify">
 	<thead>
 		<tr>
 			<th class="uk-table-shrink"><center>#</center></th>
@@ -35,3 +38,22 @@ if($_SESSION["admin"] != true){die("Not have permission!");}
 	</tbody>
 </table>
 </div>
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript"> 
+$(function(){
+	var clicked = false;
+	$("a.search-click").click(function(){
+		if(!clicked){
+			clicked=true;
+    		$('table.usersTable').dataTable({});
+    	} else{
+    		clicked=false;
+    		//$('table.runnerTable').dataTable().fnClearTable();
+    		$('table.usersTable').dataTable().fnDestroy();
+    	}
+	});
+} );
+</script>
