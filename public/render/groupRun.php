@@ -23,12 +23,12 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 		?>
 		<h3 align="right" style="margin:0px;margin-bottom: 5px;"><b>#<?php echo $i; ?></b></h3>
 		<div align="left">
-		<label><b>ชื่อ-สกุล <font color="red"><b>*</b></font></b> <font color="grey">(ไม่ต้องใส่คำนำหน้า)</font> 
+		<label for="f<?php echo $i-1; ?>"><b>ชื่อ-สกุล <font color="red"><b>*</b></font></b> <font color="grey">(ไม่ต้องใส่คำนำหน้า)</font> </label>
 			<div class="uk-text-center uk-grid-small" uk-grid><div class="uk-width-1-2">
-				<input type="text" class="uk-input" style="margin-right:0px;" name="firstn[<?php echo $i-1; ?>]" autocomplete="off" required placeholder="First Name" />
+				<input type="text" class="uk-input" style="margin-right:0px;" name="firstn[<?php echo $i-1; ?>]" id="f<?php echo $i-1; ?>" autocomplete="off" required placeholder="First Name" />
 			</div><div class="uk-width-1-2">
 				<input type="text" class="uk-input" style="margin-left:0px;" name="lastn[<?php echo $i-1; ?>]" autocomplete="off" required placeholder="Last Name" />
-			</div></div></label>
+			</div></div>
 		</div>
 		<div align="left">
 			<div class="uk-text-center uk-grid-small" uk-grid><div class="uk-width-1-2" align="left">
@@ -165,7 +165,7 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 </div>
 <script>
 <?php
-if(isset($_POST["act"]) and $_POST["act"]!=2){
+if(!isset($_POST["act"]) or (isset($_POST["act"]) and $_POST["act"]!=2)){
 	function js_str($s)
 	{
 	    return '"' . addcslashes($s, "\0..\37\"\\") . '"';
