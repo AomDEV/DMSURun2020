@@ -24,9 +24,9 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 		<?php 
 		$getRunner = $db->getRows("select * from run order by runid asc",array());
 		foreach($getRunner as $row){
-			$thisUID = ($row["uid"]!=0)?$row["follower"]:$row["uid"];
+			$thisUID = (intval($row["uid"]) + intval($row["follower"]));
 			//Check payment
-			$getRun = $db->getRows("select runType,isVIP,follow_name,follower from run where uid=? or follower=?",array($thisUID,$thisUID));
+			$getRun = $db->getRows("select runType,isVIP,follow_name,follower from run where (uid=? and follower=0) or (uid=0 and follower=?)",array($thisUID,$thisUID));
 			$priceTotal = 0;
 			foreach($getRun as $row0){
 				$price = ($row0["isVIP"]==true)?$runPrice[3]:$runPrice[$row0["runType"]];
@@ -35,8 +35,8 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 			if($db->getNumber("select amount from payment_report where uid=? and status=1",array($thisUID))>=1){
 				$getTotalPrice = $db->getRows("select amount from payment_report where uid=? and status=1",array($thisUID));
 				$paidTotal = 0;
-				foreach($getTotalPrice as $row){
-					$paidTotal += intval($row["amount"]);
+				foreach($getTotalPrice as $row1){
+					$paidTotal += intval($row1["amount"]);
 				}
 				$priceTotal -= $paidTotal;
 			}
@@ -44,8 +44,12 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 			if($priceTotal<=0){$icon="check";}
 			//Check payment
 
-			$runTypeLabel = ($row["isVIP"]==true)?$runSubType[$row["runType"]]:(($row["runType"]==2)?$ageType[$row["subType"]]:"ปกติ");
-			$runLabel = ($row["isVIP"]==true)?"VIP":$runType[$row["runType"]];
+			$runTypeLabel=0;
+			$runLabel=0;
+			if(isset($row["isVIP"])){
+				$runTypeLabel = ($row["isVIP"]==true)?$runSubType[$row["runType"]]:(($row["runType"]==2)?$ageType[$row["subType"]]:"ปกติ");
+				$runLabel = ($row["isVIP"]==true)?"VIP":$runType[$row["runType"]];
+			}
 			if(isset($row["uid"]) and $row["uid"]==0){
 				$fullName = $row["follow_name"];
 			} else{
@@ -58,7 +62,7 @@ $db = new database($config["user"], $config["pass"], $config["host"], $config["d
 			echo '<td>'.$runLabel.'</td>';
 			echo '<td>'.$runTypeLabel.'</td>';
 			echo '<td><center>'.$sizes[$row["size"]].'</center></td>';
-			echo '<td><center><span uk-icon="'.$icon.'"></span></center></td>';
+			echo '<td><center><span uk-icon="'.$icon.'" title="'.$priceTotal.' | '.count($getRun).' | '.$thisUID.'"></span></center></td>';
 			echo '</tr>';
 		}
 
